@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SolarNova Energy</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<div id="app">
+
+<section id="auth" class="auth-wrap">
+
+<div class="auth-visual">
+  <div class="sun-orb">☀</div>
+  <span class="eyebrow">SMART SOLAR PLATFORM</span>
+  <h1>SolarNova</h1>
+  <p>Track your solar equipment, production and account activity from one clean dashboard.</p>
+</div>
+
+<div class="auth-card">
+
+<div class="brand">
+  <div class="brand-mark">SN</div>
+  <div>
+    <b>SolarNova Energy</b>
+    <small>Member portal</small>
+  </div>
+</div>
+
+<div class="tabs">
+  <button id="tabLogin" type="button">Login</button>
+  <button id="tabRegister" type="button" class="selected">Create account</button>
+</div>
+
+<form id="authForm">
+
+<label>
+Email address
+<input id="email" type="email" placeholder="you@example.com" required>
+</label>
+
+<div id="mobileField">
+<label>
+Mobile number
+<input id="mobile" type="tel" placeholder="98XXXXXXXX">
+</label>
+</div>
+
+<div id="refField">
+<label>
+Referral code <span>optional</span>
+<input id="ref" placeholder="Enter code">
+</label>
+</div>
+
+<label>
+Password
+<input id="password" type="password" placeholder="Minimum 6 characters" minlength="6" required>
+</label>
+
+<button id="authSubmit" class="primary" type="submit">
+Create account
+</button>
+
+</form>
+
+<p id="authMessage" class="message"></p>
+
+</div>
+</section>
+
+
+<section id="dashboard" hidden>
+
+<header class="topbar">
+
+<div class="brand">
+<div class="brand-mark">SN</div>
+<div>
+<b>SolarNova Energy</b>
+<small>Member dashboard</small>
+</div>
+</div>
+
+<button id="logoutBtn" class="logout">Logout</button>
+
+</header>
+
+
+<main class="container">
+
+<section class="hero card">
+<span class="eyebrow">WELCOME</span>
+<h2 id="welcomeName">SolarNova Member</h2>
+<p>Your solar activity dashboard</p>
+</section>
+
+
+<section class="stats">
+
+<div class="card stat">
+<small>Account balance</small>
+<strong id="balance">₹0</strong>
+</div>
+
+<div class="card stat">
+<small>Active plans</small>
+<strong id="devices">0</strong>
+</div>
+
+<div class="card stat">
+<small>Account activity</small>
+<strong id="income">₹0</strong>
+</div>
+
+</section>
+
+
+<section class="actions card">
+
+<div class="section-head">
+<h3>Quick actions</h3>
+</div>
+
+<div class="action-grid">
+
+<button onclick="openPage('plans')">
+<b>▣</b>
+<span>Solar plans</span>
+</button>
+
+<button onclick="openPage('withdraw')">
+<b>↗</b>
+<span>Withdraw</span>
+</button>
+
+<button onclick="openPage('transactions')">
+<b>≡</b>
+<span>Transactions</span>
+</button>
+
+<button onclick="openPage('referral')">
+<b>♧</b>
+<span>Invite</span>
+</button>
+
+</div>
+</section>
+
+
+<section class="production card">
+
+<div class="section-head">
+
+<div>
+<h3>Production overview</h3>
+<small>Demo data</small>
+</div>
+
+<span class="live">● DEMO</span>
+
+</div>
+
+<div class="chart">
+
+<div class="bars">
+<i style="height:34%"></i>
+<i style="height:51%"></i>
+<i style="height:42%"></i>
+<i style="height:68%"></i>
+<i style="height:57%"></i>
+<i style="height:82%"></i>
+<i style="height:73%"></i>
+</div>
+
+</div>
+</section>
+
+
+<section id="page" class="card page">
+
+<h3>Solar plans</h3>
+
+<div id="pageContent"></div>
+
+</section>
+
+</main>
+
+</section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
