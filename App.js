@@ -135,14 +135,32 @@ function openPage(page){
   }
 }
 
-function activatePlan(index){
+async function activatePlan(index){
   const plan = plans[index];
 
+  if(!currentUser){
+    alert("Please login first.");
+    return;
+  }
+
+  const { error } = await sb
+    .from("transactions")
+    .insert({
+      user_id: currentUser.id,
+      amount: plan.price,
+      type: "plan_activation_request",
+      description: `${plan.name} activation request`
+    });
+
+  if(error){
+    console.error(error);
+    alert("Activation request could not be submitted.");
+    return;
+  }
+
   alert(
-    plan.name +
-    " selected for ₹" +
-    plan.price +
-    ". Payment verification will be added later."
+    `${plan.name} selected for ₹${plan.price}. ` +
+    `Payment is required before activation is confirmed.`
   );
 }
 
